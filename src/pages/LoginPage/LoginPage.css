@@ -1,0 +1,94 @@
+/* Container bao trùm toàn bộ màn hình */
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #00AEEF 0%, #0077CC 100%); /* Màu xanh gradient */
+  /* Nếu bạn có ảnh nền thành phố như thiết kế, dùng dòng dưới: */
+  /* background: url('../../assets/bg-login.jpg') no-repeat center center/cover; */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Logo container */
+.login-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.app-logo {
+  width: 100px;
+  height: 100px;
+  background-color: white; /* Giả lập logo tròn trắng */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-weight: bold;
+  color: #00AEEF;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Form container */
+.login-form-wrapper {
+  width: 100%;
+  max-width: 400px;
+  padding: 0 20px;
+}
+
+/* Custom Ant Design Input */
+.custom-input .ant-input-affix-wrapper {
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+}
+
+/* Custom Checkbox text & Links */
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin-bottom: 24px;
+}
+
+.ant-checkbox-wrapper {
+  color: white !important;
+}
+
+.forgot-password {
+  color: white;
+  cursor: pointer;
+}
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Nút Đăng nhập */
+.login-btn {
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid white !important;
+  background: transparent !important;
+  color: white !important;
+}
+
+.login-btn:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+}
+
+/* Footer text */
+.login-footer {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  line-height: 1.5;
+}

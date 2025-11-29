@@ -1,23 +1,38 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import MainLayout from './layouts/MainLayout';
-import LoginPage from './pages/LoginPage';
-// import Shop from './pages/Shop';
-// import Cart from './pages/Cart';
-// import Profile from './pages/Profile';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import MainLayout from './layouts/MainLayout';
+import LoginPage from './pages/LoginPage/LoginPage';
+import ShopPage from './pages/Shop/ShopPage';
+import CartPage from './pages/Cart/CartPage';
+import ProfilePage from './pages/Profile/ProfilePage';
+import ProductDetailPage from './pages/ProductDetail/ProductDetailPage';
+
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated } = useSelector((state) => state.auth);
+  
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+  return children;
+};
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        
-        {/* Các trang cần Layout chung */}
-        {/* <Route path="/" element={<MainLayout />}>
-           <Route index element={<Shop />} />
-           <Route path="shop" element={<Shop />} />
-           <Route path="cart" element={<Cart />} />
-           <Route path="profile" element={<Profile />} />
-        </Route> */}
+        <Route path="/" element={
+          <ProtectedRoute>
+            <MainLayout />
+          </ProtectedRoute>
+        }>
+          <Route index element={<ShopPage />} />
+          <Route path="shop" element={<ShopPage />} />
+          <Route path="product/:id" element={<ProductDetailPage />} />
+          <Route path="cart" element={<CartPage />} />
+          <Route path="profile" element={<ProfilePage />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
   );

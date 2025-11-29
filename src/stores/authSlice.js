@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+// Giả lập API Login (Async Thunk)
 export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async (userData, { rejectWithValue }) => {
@@ -8,9 +9,14 @@ export const loginUser = createAsyncThunk(
 
       if (userData.username === 'admin' && userData.password === '123456') {
         return { 
-            name: 'Mr. User', 
+ 
+            name: 'MR. USER', 
             email: 'user@gmail.com', 
-            avatar: 'https://i.pravatar.cc/150?img=11' 
+            avatar: '/images/avatar.png',
+            dob: '2018-01-01', 
+            gender: 'male',
+            companyAddress: '15, Duy Tan, Dich Vong Hau, Cau Giay, Ha Noi',
+            homeAddress: '15, Duy Tan, Dich Vong Hau, Cau Giay, Ha Noi'
         };
       } else {
         return rejectWithValue('Tên đăng nhập hoặc mật khẩu không đúng');
@@ -24,17 +30,12 @@ export const loginUser = createAsyncThunk(
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    user: null,
-    isLoading: false,
-    error: null,
+    user: null,         
+    isLoading: false,     
+    error: null,           
     isAuthenticated: false,
   },
-  reducers: {
-    logout: (state) => {
-      state.user = null;
-      state.isAuthenticated = false;
-    },
-  },
+  
   extraReducers: (builder) => {
     builder
       .addCase(loginUser.pending, (state) => {
@@ -44,7 +45,7 @@ const authSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isAuthenticated = true;
-        state.user = action.payload;
+        state.user = action.payload; 
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
@@ -53,5 +54,4 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout } = authSlice.actions;
 export default authSlice.reducer;

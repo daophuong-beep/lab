@@ -1,0 +1,9 @@
+.datepicker {
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #000000;
+}
+
+.select > .ant-select-suffix > span> svg {
+    fill: #000000;
+}

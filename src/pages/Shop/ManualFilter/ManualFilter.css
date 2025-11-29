@@ -1,0 +1,73 @@
+.filter-invisible-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  z-index: 998;
+}
+
+.filter-dropdown-box {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 10px;
+  width: 450px;
+  background-color: #ffffff;
+  padding: 20px 25px;
+  z-index: 999;
+}
+
+.filter-section-title,
+.filter-label,
+.filter-value-text ,
+.filter-header{
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.filter-header {
+  border: 1px solid #000000;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-box: auto;
+}
+
+
+
+.filter-section-title {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.filter-label {
+  color: #333;
+}
+
+.filter-value-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+
+.arrow-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  display: block;
+}
